@@ -48,12 +48,12 @@ def get_list(key, data):
     return [i.title() for i in data[key]]
 
 def load_model():
-        #download_model()
+        download_model()
         model = tf.keras.models.load_model("model/model.h5")
         model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.00001, weight_decay=0.0001),
                       metrics=["accuracy"],
                       loss=tf.keras.losses.CategoricalCrossentropy(label_smoothing=0.1))
-        #download_weights()
+        download_weights()
         model.load_weights("weights/modeldense1.h5")
         return model
     
